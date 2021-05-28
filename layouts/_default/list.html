@@ -16,7 +16,7 @@
                     </div>
                     <div class="content">
                         <div class="inner">
-                            <h1>{{ .Title | default "Title" }}</h1>
+                            <h1>{{ .Title | default "This is some random title" }}</h1>
                             {{ if .Params.description }}
                             <p>
                                 {{ .Params.description }}
@@ -26,36 +26,60 @@
                     </div>
                     <nav>
                         <ul>
-                            {{ range .Pages.ByDate }}
-                                {{if .Title }}
-                                    {{if .Content}}
+
                                         <li>
-                                            <a href="#{{ cond (in (.Title|urlize) "%") (.Title | base64Encode) (.Title) | urlize }}">{{ .Title }}</a>
+                                            <a href="#services">Services</a>
                                         </li>
-                                    {{ else }}
-                                        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-                                    {{ end }}
-                                {{ end }}
-                            {{ end }}
+                                        <li>
+                                            <a href="#questions">Questions</a>
+                                        </li>
+                                        <li>
+                                            <a href="#contact">Contact</a>
+                                        </li>
+
                         </ul>
                     </nav>
                 </header>
 
             <!-- Main -->
                 <div id="main">
-
-                    {{ range .Pages }}
-                        {{if .Title }}
-                            {{if .Content }}
-                                <article id="{{ cond (in (.Title|urlize) "%") (.Title | base64Encode) (.Title) | urlize }}">
-                                    <h2 class="major">{{ .Title }}</h2>
-                                    <span class="image main"><img src="{{ .Params.image }}" alt="" /></span>
-                                    {{ .Content }}
-                                </article>
-                            {{ end }}
-                        {{ end }}
-                    {{ end }}
-
+                    <article id="services">
+                        <h2 class="major">Services</h2>
+                        <span class="image main"><img src="{{ .Params.image }}" alt="" /></span>
+                            <ul style="list-style-type: none; display: inline-block;">
+                                <li>Engine Cleaning</li>
+                                <li>Paint Protection</li>
+                                <li>Polishing Services</li>
+                                <li>Vacuuming</li>
+                                <li>Complete Interior Detailing</li>
+                                <li>Paint Restoration</li>
+                                <li>Scratch Removal</li>
+                                <li>Waxing Services</li>
+                                <li>Fragrance/Air Freshener</li>
+                            </ul>
+                            <ul style="list-style-type: none; display: inline-block;">
+                                <li>Interior Detailing</li>
+                                <li>Car Wash</li>
+                                <li>Headlight Restoration</li>
+                                <li>Interior Shampoo</li>
+                                <li>Mobile Detailing Services</li>
+                                <li>Oxidation Removal</li>
+                                <li>Tar, Bugs & Tree Sap Removal</li>
+                                <li>Tire Detailing</li>
+                                <li>Wheel & Rim Detailing</li>
+                            </ul>
+                    </article>
+                    <article id="questions">
+                        <h2 class="major">Questions</h2>
+                        <p>Question 1</p>
+                        <p>Question 2</p>
+                        <p>Question 3</p>
+                    </article>
+                    <article id="contact">
+                        <h2 class="major">Contact</h2>
+                        <p>Phone: (714) 684-6066</p>
+                        <p>Hours</p>
+                    </article>
                 </div>
 
                 {{ partial "design.html" .}}
